@@ -60,12 +60,13 @@ Após copiar a pasta firmware toda pra /lib/firmware, entre na pasta do que poss
  sudo ./instala_touch.sh
 ``` 
 # Configurando o Som
-Para instalar o som, copie o conteúdo da pasta som utilizando o seguinte comando:
+Para instalar o som, entre na pasta audio e copie o conteúdo dela utilizando o seguinte comando:
 ```bash
-
+sudo cp -rf ./byt-rt5640 /usr/share/alsa/ucm
 ```
-Após isso, rode o comando:
+Após isso, rode o comando, este comando impede a detecção do audio HDMI pelo kernel, já que não temos conector hdmi :( :
 ```bash
+echo 'blacklist snd_hdmi_lpe_audio' >> /etc/modprobe.d/50-block-hdmi-audio.conf
 ```
 O Som deverá funcionar quando reiniciar o tablet.
 
@@ -86,4 +87,5 @@ Como não precisei de outros sensores, não me importei em tentar fazê-los func
 # Fontes de consulta
 * https://gist.github.com/jfstenuit/09feac5ab0bff500db81ac9a56a48773
 * https://github.com/wkennington/linux-firmware/
+* https://github.com/plbossart/UCM/tree/master/bytcr-rt5640
 
