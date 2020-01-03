@@ -63,5 +63,5 @@ Após copiar a pasta firmware toda pra /lib/firmware, entre na pasta do que poss
 
 # Fontes de consulta
 * https://gist.github.com/jfstenuit/09feac5ab0bff500db81ac9a56a48773
-* https://github.com/wkennington/linux-firmware/tree/master/i915
+* https://github.com/wkennington/linux-firmware/
 
