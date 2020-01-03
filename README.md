@@ -21,15 +21,15 @@ Eu particionei a memória dele em 14Gb em EXT4 e 1Gb de swap, porém não criei 
 
 Após instalado, é necessário utilizar outro Kernel mais novo para dar mais compatibilidade com os dispositivos do tablet. Para isso faça o seguinte: (retirado e adaptado de: https://gist.github.com/jfstenuit/09feac5ab0bff500db81ac9a56a48773)
 
-Adicione a linha abaixo no arquivo /etc/apt/sources.list :
+Adicione a linha abaixo no arquivo /etc/apt/sources.list (lembre-se de editar como sudo):
 ```bash
 deb http://deb.debian.org/debian buster-backports main contrib non-free
 ```
 
 Depois instale o novo kernel (5.3):
 ```bash
-apt-get update
-apt-get -t buster-backports install linux-image-5.3.0-0.bpo.2-686-unsigned 
+sudo apt-get update
+sudo apt-get -t buster-backports install linux-image-5.3.0-0.bpo.2-686-unsigned 
 ```
 
 # Instalando os firmwares non-free
@@ -43,9 +43,9 @@ Os firmwares necessários são:
 Todos estão na pasta firmware deste repositório.  
 Os que não estiverem na pasta, são instalados via repositório:
 ```bash
-apt-get install firmware-intel-sound firmware-realtek
+sudo apt-get install firmware-intel-sound firmware-realtek
 ```
-Para instalar os firmware do repositório, entre na pasta firmware e digite:
+Para instalar os firmware que estou fornecendo dentro deste repositório, entre na pasta firmware e digite:
 ```bash
  sudo cp -r * /lib/firmware/
 ```
@@ -59,8 +59,29 @@ Após copiar a pasta firmware toda pra /lib/firmware, entre na pasta do que poss
  sudo insmod gslx680_ts_acpi.ko
  sudo ./instala_touch.sh
 ``` 
+# Configurando o Som
+Para instalar o som, copie o conteúdo da pasta som utilizando o seguinte comando:
+```bash
 
+```
+Após isso, rode o comando:
+```bash
+```
+O Som deverá funcionar quando reiniciar o tablet.
 
+# Outras informações
+* Caso queira instalar outros dispositivos, principalmente os i2c, que são a maioria nesse tablet, digite o comando abaixo, ele lista todos os dispositivos, com essas informações, procure no google.
+```bash
+find /sys/devices/platform -name name -printf "%p\t" -exec cat {} \;
+```
+
+* Para criar o firmware do touch utilizei um comando passando parametros, vou disponibilizar aqui também para quem achar que o touch não está tão bom e queira testar uma calibração melhor. Link para referência: (https://github.com/onitake/gsl-firmware#gslx680_ts_acpi)
+```bash
+./fwtool -c firmware.fw  -m 1680 -w 940 -h 640 -t 5 -f track,xflip silead_ts.fw
+```
+
+# Outros sensores
+Como não precisei de outros sensores, não me importei em tentar fazê-los funcionar. Caso tenha interesse e consiga algum avanço, peço que informe como para incluirmos neste manual. O link (https://gist.github.com/jfstenuit/09feac5ab0bff500db81ac9a56a48773) pode te ajudar.
 
 # Fontes de consulta
 * https://gist.github.com/jfstenuit/09feac5ab0bff500db81ac9a56a48773
