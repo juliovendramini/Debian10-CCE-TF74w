@@ -44,7 +44,7 @@ Os firmwares necessários são:
 Todos estão na pasta firmware deste repositório.  
 Os que não estiverem na pasta, são instalados via repositório:
 ```bash
-apt-get install firmware-intel-sound
+apt-get install firmware-intel-sound firmware-realtek
 ```
 Você precisa dos drivers non-free realtek para o wifi funcionar.
 
