@@ -1,11 +1,13 @@
 # Debian10-CCE-TF74w
 
 # Introdução: 
-Guia de instalação do Debian 10 no tablet CCE TF74w, este guis foi feito para auxiliar as pessoas que querem fazer o mesmo processo ou algo parecido. Não me responsabilizo por nada que der errado. Aqui temos basicamente um compilado de informações existentes na comunidade de software livre.
+Guia de instalação do Debian 10 no tablet CCE TF74w, este guia foi feito para auxiliar as pessoas que querem fazer o mesmo processo ou algo parecido. Não me responsabilizo por nada que der errado. Aqui temos basicamente um compilado de informações existentes na comunidade de software livre.
 
 Este guia tem como objetivo instalar o Debian 10 32bits no tablet da CCE TF74w. O principal objetivo de uso é como servidor e painel para o OpenHab, um sistema de automação residencial Open-Source. 
 Este manual mostra como instalar o Debian e configurar o Wifi, TouchScreen e Audio. Os demais dispositivos não são necessários, então não me preocupei.
 Você vai precisar da boot via pendrive no tablet. Não vou entrar em detalhes como faz isso pois existe muito conteudo na internet falando sobre.
+
+* Conhecimento necessário: Básico de Linux e saber utilizar o terminal.
 
 # Baixando o Debian 10:
 
@@ -66,9 +68,26 @@ sudo cp -rf ./byt-rt5640 /usr/share/alsa/ucm
 ```
 Após isso, rode o comando, este comando impede a detecção do audio HDMI pelo kernel, já que não temos conector hdmi :( :
 ```bash
+sudo su
 echo 'blacklist snd_hdmi_lpe_audio' >> /etc/modprobe.d/50-block-hdmi-audio.conf
+exit
 ```
 O Som deverá funcionar quando reiniciar o tablet.
+
+# Fazendo login automático
+É possível omitir a tela de login de usuário, no meu caso preciso, pois quero entrar diretamente com o painel do OpenHab. Este passo é só de curiosidade mesmo e não há necessidade em ser feito. Digite o comando:
+```bash
+sudo nano /etc/lightdm/lightdm.conf
+```
+Dentro do documento, procure a parte
+```bash
+[Seat:*]
+...
+#autologin-user=
+#autologin-user-timeout=0
+...
+```
+Descomente as duas linhas retirando o # e coloque o nome do seu usuario depois do = de autologin-user.
 
 # Outras informações
 * Caso queira instalar outros dispositivos, principalmente os i2c, que são a maioria nesse tablet, digite o comando abaixo, ele lista todos os dispositivos, com essas informações, procure no google.
