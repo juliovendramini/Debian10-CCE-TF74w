@@ -107,4 +107,5 @@ Como não precisei de outros sensores, não me importei em tentar fazê-los func
 * https://gist.github.com/jfstenuit/09feac5ab0bff500db81ac9a56a48773
 * https://github.com/wkennington/linux-firmware/
 * https://github.com/plbossart/UCM/tree/master/bytcr-rt5640
+* https://wiki.debian.org/LightDM#Enable_autologin
 
