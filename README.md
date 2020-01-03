@@ -20,7 +20,7 @@ Eu particionei a memória dele em 14Gb em EXT4 e 1Gb de swap, porém não criei 
 
 # Kernel Novo
 
-Após instalado, é necessário utilizar outro Kernel mais novo para dar mais compatibilidade com os dispositivos do tablet. Para isso faça o seguinte: (retirado de: https://gist.github.com/jfstenuit/09feac5ab0bff500db81ac9a56a48773)
+Após instalado, é necessário utilizar outro Kernel mais novo para dar mais compatibilidade com os dispositivos do tablet. Para isso faça o seguinte: (retirado e adaptado de: https://gist.github.com/jfstenuit/09feac5ab0bff500db81ac9a56a48773)
 
 Adicione a linha abaixo no arquivo /etc/apt/sources.list :
 ```bash
@@ -33,6 +33,11 @@ apt-get update
 apt-get -t buster-backports install linux-image-5.3.0-0.bpo.2-686-unsigned 
 ```
 
+# Instalando os firmwares non-free
+
+Para o tablet funcionar, são necessários vários binários de firmware espalhados pela net. Vou linkar os locais aqui pra não ter problema futuros com licença ou permissão de postagem. Todos eles também se encontram no github.
+O kernel reclama da falta dos firmwares, então é só olhar o log utilizando o comando dmesg que saberemos quais estão faltando. Todos os firmwares devem ser colocados na pasta /lib/firmware, alguns ainda dentro de subpasta específica (da pra saber pelo log).
+  * Firmware i915: 
 
 Você precisa dos drivers non-free realtek para o wifi funcionar.
 
@@ -42,3 +47,4 @@ Você precisa dos drivers non-free realtek para o wifi funcionar.
 
 # Fontes de consulta
 * https://gist.github.com/jfstenuit/09feac5ab0bff500db81ac9a56a48773
+
