@@ -68,7 +68,9 @@ sudo cp -rf ./byt-rt5640 /usr/share/alsa/ucm
 ```
 Após isso, rode o comando, este comando impede a detecção do audio HDMI pelo kernel, já que não temos conector hdmi :( :
 ```bash
+sudo su
 echo 'blacklist snd_hdmi_lpe_audio' >> /etc/modprobe.d/50-block-hdmi-audio.conf
+exit
 ```
 O Som deverá funcionar quando reiniciar o tablet.
 
