@@ -56,7 +56,8 @@ Para instalar os firmware do repositório, entre na pasta firmware e digite:
 Após copiar a pasta firmware toda pra /lib/firmware, entre na pasta do que possui os módulos do kernel e digite:
 ```bash
  chmod +x instala_touch.sh
- ./instala_touch.sh
+ sudo insmod gslx680_ts_acpi.ko
+ sudo ./instala_touch.sh
 ``` 
 
 
