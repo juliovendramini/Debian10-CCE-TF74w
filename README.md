@@ -17,7 +17,6 @@ Utilizei a versão NetInst para economizar espaço e coloquei o mínimo possíve
 Eu particionei a memória dele em 14Gb em EXT4 e 1Gb de swap, porém não criei a partição SWAP, espero não precisar dela. Se precisar eu ativo.
  
 
-
 # Kernel Novo
 
 Após instalado, é necessário utilizar outro Kernel mais novo para dar mais compatibilidade com os dispositivos do tablet. Para isso faça o seguinte: (retirado e adaptado de: https://gist.github.com/jfstenuit/09feac5ab0bff500db81ac9a56a48773)
@@ -39,16 +38,22 @@ Para o tablet funcionar, são necessários vários binários de firmware espalha
 O kernel reclama da falta dos firmwares, então é só olhar o log utilizando o comando dmesg que saberemos quais estão faltando. Todos os firmwares devem ser colocados na pasta /lib/firmware, alguns ainda dentro de subpasta específica (da pra saber pelo log).
 Os firmwares necessários são:
   * Firmware i915, retirado de https://github.com/wkennington/linux-firmware/tree/master/i915
-  * Firmware Realtek Wifi, 
-  * Firmware do touchscreen, 
+  * Firmware Realtek Wifi/Bluetooth, 
+  * Firmware do Touchscreen Silead, 
 Todos estão na pasta firmware deste repositório.  
 Os que não estiverem na pasta, são instalados via repositório:
 ```bash
 apt-get install firmware-intel-sound firmware-realtek
 ```
-Você precisa dos drivers non-free realtek para o wifi funcionar.
 
+# Configurando o TouchScreen
+ O touchScreen utiliza o controlador Silead. O firmware do CCE TF74w já foi extraido e está na pasta do repositório. Para ele funcionar é preciso de um driver do controlador. Existem dois: o silead_ts e o gslx680_ts_acpi (fonte: https://github.com/onitake/gsl-firmware) o primeiro precisa de alterar código no kernel para incluir as configurações do touch. Desisti desse e parti pro outro, mesmo que não esteja mais em desenvolvimento. Já compilei o modulo do kernel pra essa versão 5.3 e coloquei no repositório, então é só instalar como nos passos abaixo. O link do código fonte é: (https://github.com/onitake/gslx680-acpi)
 
+Após copiar a pasta firmware toda pra /lib/firmware, entre na pasta do que possui os módulos do kernel e digite:
+```bash
+ chmod +x instala_touch.sh
+ ./instala_touch.sh
+``` 
 
 
 
