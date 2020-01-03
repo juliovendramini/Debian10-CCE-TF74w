@@ -45,6 +45,10 @@ Os que não estiverem na pasta, são instalados via repositório:
 ```bash
 apt-get install firmware-intel-sound firmware-realtek
 ```
+Para instalar os firmware do repositório, entre na pasta firmware e digite:
+```bash
+ sudo cp -r * /lib/firmware/
+```
 
 # Configurando o TouchScreen
  O touchScreen utiliza o controlador Silead. O firmware do CCE TF74w já foi extraido e está na pasta do repositório. Para ele funcionar é preciso de um driver do controlador. Existem dois: o silead_ts e o gslx680_ts_acpi (fonte: https://github.com/onitake/gsl-firmware) o primeiro precisa de alterar código no kernel para incluir as configurações do touch. Desisti desse e parti pro outro, mesmo que não esteja mais em desenvolvimento. Já compilei o modulo do kernel pra essa versão 5.3 e coloquei no repositório, então é só instalar como nos passos abaixo. O link do código fonte é: (https://github.com/onitake/gslx680-acpi)
