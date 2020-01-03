@@ -1,11 +1,13 @@
 # Debian10-CCE-TF74w
 
 # Introdução: 
-Guia de instalação do Debian 10 no tablet CCE TF74w, este guis foi feito para auxiliar as pessoas que querem fazer o mesmo processo ou algo parecido. Não me responsabilizo por nada que der errado. Aqui temos basicamente um compilado de informações existentes na comunidade de software livre.
+Guia de instalação do Debian 10 no tablet CCE TF74w, este guia foi feito para auxiliar as pessoas que querem fazer o mesmo processo ou algo parecido. Não me responsabilizo por nada que der errado. Aqui temos basicamente um compilado de informações existentes na comunidade de software livre.
 
 Este guia tem como objetivo instalar o Debian 10 32bits no tablet da CCE TF74w. O principal objetivo de uso é como servidor e painel para o OpenHab, um sistema de automação residencial Open-Source. 
 Este manual mostra como instalar o Debian e configurar o Wifi, TouchScreen e Audio. Os demais dispositivos não são necessários, então não me preocupei.
 Você vai precisar da boot via pendrive no tablet. Não vou entrar em detalhes como faz isso pois existe muito conteudo na internet falando sobre.
+
+* Conhecimento necessário: Básico de Linux e saber utilizar o terminal.
 
 # Baixando o Debian 10:
 
