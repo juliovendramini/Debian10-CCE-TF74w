@@ -37,7 +37,11 @@ apt-get -t buster-backports install linux-image-5.3.0-0.bpo.2-686-unsigned
 
 Para o tablet funcionar, são necessários vários binários de firmware espalhados pela net. Vou linkar os locais aqui pra não ter problema futuros com licença ou permissão de postagem. Todos eles também se encontram no github.
 O kernel reclama da falta dos firmwares, então é só olhar o log utilizando o comando dmesg que saberemos quais estão faltando. Todos os firmwares devem ser colocados na pasta /lib/firmware, alguns ainda dentro de subpasta específica (da pra saber pelo log).
-  * Firmware i915: 
+Os firmwares necessários são:
+  * Firmware i915
+  * Firmware Realtek Wifi
+  * Firmware do touchscreen 
+Todos estão na pasta firmware deste repositório.  
 
 Você precisa dos drivers non-free realtek para o wifi funcionar.
 
