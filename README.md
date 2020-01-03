@@ -74,6 +74,21 @@ exit
 ```
 O Som deverá funcionar quando reiniciar o tablet.
 
+# Fazendo login automático
+É possível omitir a tela de login de usuário, no meu caso preciso, pois quero entrar diretamente com o painel do OpenHab. Este passo é só de curiosidade mesmo e não há necessidade em ser feito. Digite o comando:
+```bash
+sudo nano /etc/lightdm/lightdm.conf
+```
+Dentro do documento, procure a parte
+```bash
+[Seat:*]
+...
+#autologin-user=
+#autologin-user-timeout=0
+...
+```
+Descomente as duas linhas retirando o # e coloque o nome do seu usuario depois do = de autologin-user.
+
 # Outras informações
 * Caso queira instalar outros dispositivos, principalmente os i2c, que são a maioria nesse tablet, digite o comando abaixo, ele lista todos os dispositivos, com essas informações, procure no google.
 ```bash
