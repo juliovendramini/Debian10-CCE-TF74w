@@ -42,7 +42,10 @@ Os firmwares necessários são:
   * Firmware Realtek Wifi, 
   * Firmware do touchscreen, 
 Todos estão na pasta firmware deste repositório.  
-
+Os que não estiverem na pasta, são instalados via repositório:
+```bash
+apt-get install firmware-intel-sound
+```
 Você precisa dos drivers non-free realtek para o wifi funcionar.
 
 
