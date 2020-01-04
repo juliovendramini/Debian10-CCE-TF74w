@@ -1,0 +1,7 @@
+Atenção! Ainda em desenvolvimento...
+
+#Instalando o OpenHab2
+Tentei instalar a versão de linux padrão, porém nao detectava a versão 8 do java. Como o Debian 10 não tem no repositório padrão, resolvi utilizar o  instalador auxilizar do openhab
+* Execute os passos no link ( https://www.openhab.org/docs/installation/openhabian.html#other-linux-systems-add-openhabian-just-like-any-other-software)
+
+* Agora temos que fazer a interface web aparecer no link http://<ip_do_tablet>:8080, por algum motivo não está funcionando de primeira.
